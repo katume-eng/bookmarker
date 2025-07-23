@@ -11,3 +11,4 @@ __cache__/
 *.env
 db.sqlite3
 *.DS_Store
+ideas.txt
