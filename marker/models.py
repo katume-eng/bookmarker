@@ -28,11 +28,11 @@ class Book(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, blank=True, null=True)
     summary = models.TextField()
 
-def __str__(self):
-    authors = ", ".join([str(a) for a in self.author.all()])
-    genres = ", ".join([str(g) for g in self.genre.all()])
-    company = self.company.name if self.company else "Unknown"
-    return f"{self.title} by {authors} in {company}, genre: {genres} (added {self.published_date})"
+    def __str__(self):
+        authors = ", ".join([str(a) for a in self.author.all()])
+        genres = ", ".join([str(g) for g in self.genre.all()])
+        company = self.company.name if self.company else "Unknown"
+        return f"{self.title} by {authors} in {company}, genre: {genres} (added {self.published_date})"
 class Impression(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     content = models.TextField()
