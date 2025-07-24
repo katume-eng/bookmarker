@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'marker.apps.MarkerConfig',  # Custom app for managing bookmarks
+    'marker',
 ]
 
 MIDDLEWARE = [
