@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,5 +8,24 @@
 <body>
     <h1>Book List</h1>
     <p>A list of all books will be displayed here.</p>
+{% for book in books %}
+    <div class="book">
+    <h2 class="title">{{ book.title }}</h2>
+
+    <p class="author">
+      著者：
+      {% for a in book.author.all %}
+        {{ a.name }}{% if not forloop.last %}, {% endif %}
+      {% empty %} 未登録 {% endfor %}
+    </p>
+
+    <p class="genre">
+      ジャンル：
+      {% for g in book.genre.all %}
+        {{ g.name }}{% if not forloop.last %}, {% endif %}
+      {% empty %} 未登録 {% endfor %}
+    </p>
+  </div>
+{% endfor %}
 </body>
 </html>
